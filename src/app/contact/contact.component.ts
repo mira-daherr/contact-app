@@ -36,11 +36,11 @@ export class ContactComponent implements OnInit{
     this.contactService.deleteContact(id);
     this.loadContacts();
   }
-  searchContact():void{
-    if(this.searchTerm){
-      this.contacts=this.contactService.searchContact(this.searchTerm);
-    }
-  }
+  // searchContact():void{
+  //   if(this.searchTerm){
+  //     this.contacts=this.contactService.searchContact(this.searchTerm);
+  //   }
+  // }
   
   startEdit(contact: Contact) {
   this.editingContact = { ...contact }; 
