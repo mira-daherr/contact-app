@@ -13,11 +13,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { FilterContactsPipe } from './filter-contacts.pipe';
+import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
     ContactComponent,
-    FilterContactsPipe
+    FilterContactsPipe,
+    ContactDetailComponent
   ],
   imports: [
     BrowserModule,

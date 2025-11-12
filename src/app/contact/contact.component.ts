@@ -12,7 +12,7 @@ export class ContactComponent implements OnInit{
   contacts :Contact[]=[];
   newContact : Contact ={id: 0, name: '', email: '', phone: ''};
   searchTerm:string="";
-  editingContact: Contact | null = null;
+  selectedContact: Contact | null = null;// editingContact: Contact | null = null;
 
   constructor (private contactService:ContactService){}
 
@@ -41,22 +41,23 @@ export class ContactComponent implements OnInit{
   //     this.contacts=this.contactService.searchContact(this.searchTerm);
   //   }
   // }
-  
-  startEdit(contact: Contact) {
-  this.editingContact = { ...contact }; 
+  updateContact(updated: Contact): void {
+  this.contactService.updateContact(updated);
+  this.loadContacts();
 }
 
-saveEdit() {
-  if (this.editingContact) {
-    this.contactService.updateContact(this.editingContact);
-    this.editingContact = null;
-    this.loadContacts();
-  }
-}
 
-cancelEdit() {
-  this.editingContact = null;
-}
+// saveEdit() {
+//   if (this.editingContact) {
+//     this.contactService.updateContact(this.editingContact);
+//     this.editingContact = null;
+//     this.loadContacts();
+//   }
+// }
+
+// cancelEdit() {
+//   this.editingContact = null;
+// }
 
   
 }
