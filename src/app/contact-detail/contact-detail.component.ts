@@ -7,7 +7,7 @@ import { Contact } from '../contact.model';
 })
 export class ContactDetailComponent {
 @Input() contact!: Contact;
-@Output() delete =new EventEmitter<number>();//output(this event the parent can handle it)delete(the name of the event)he will send a number.
+@Output() delete =new EventEmitter<string>();//output(this event the parent can handle it)delete(the name of the event)he will send a number.
 @Output() edit =new EventEmitter<Contact>();
 @Output() close =new EventEmitter<void>();
 

@@ -16,6 +16,9 @@
   </mat-form-field>
 
   <button mat-raised-button color="primary" (click)="addContact()">Add</button>
+  <button mat-raised-button color="accent" (click)="addRandomContacts()" style="margin-left:10px;">
+    Generate Random Contacts
+  </button>
 
   <hr style="margin:20px 0;">
 
@@ -24,7 +27,7 @@
     <input matInput [(ngModel)]="searchTerm">
   </mat-form-field>
 
-  <table mat-table [dataSource]="contacts | filterContacts:searchTerm" class="mat-elevation-z8" style="width:100%; margin-top:20px;">
+ <table mat-table [dataSource]="(contacts$ | async) ?? [] | filterContacts:searchTerm" class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID </th>
