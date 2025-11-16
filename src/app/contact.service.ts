@@ -67,17 +67,24 @@ export class ContactService {
   }
     generateRandomContact(): Contact {
     return {
-      id: '',
+      // id: '',
       name: randFullName(),
       email: randEmail(),
       phone: randPhoneNumber(),
-    };
+    } as Contact;
   } async generateAndSaveContacts(count: number): Promise<void> {
     const contactsCollection = this.firestore.collection('contacts');
     for (let i = 0; i < count; i++) {
+      const docRef=contactsCollection.doc();//firestore generate id
       const randomContact = this.generateRandomContact();
-      await contactsCollection.add(randomContact);
-      console.log(`✅ Added random contact: ${randomContact.name}`);
+      const contactWithId={
+        ...randomContact,
+        id:docRef.ref.id,
+      }
+      await docRef.set(contactWithId);
+      console.log(`Added: ${contactWithId.name}`);
+      //await contactsCollection.add(randomContact);
+      //console.log(`Added random contact: ${randomContact.name}`);
     }
   }
 }
