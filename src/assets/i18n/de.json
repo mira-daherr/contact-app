@@ -1,0 +1,21 @@
+{
+    "login": "Einloggen",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "dontHaveAccount": "Noch keinen Account?",
+    "signupHere": "Hier registrieren",
+    "welcome": "Willkommen",
+    "add": "Hinzufügen",
+    "name": "Name",
+    "phone": "Telefon",
+    "search": "Suchen",
+    "actions": "Aktionen",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "save": "Speichern",
+    "close": "Schließen",
+    "generateRandom": "Zufällige Kontakte erstellen",
+    "LOGOUT": "Abmelden",
+    "signinHere": "Hier anmelden",
+    "register": "Registrieren"
+}

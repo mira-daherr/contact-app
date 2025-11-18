@@ -1,0 +1,20 @@
+<div style="margin: 20px;">
+  <h2>{{ 'register' | transloco }}</h2>
+
+  <mat-form-field appearance="outline" style="margin-right:10px;">
+    <mat-label>{{ 'email' | transloco }}</mat-label>
+    <input matInput [(ngModel)]="email">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="margin-right:10px;">
+    <mat-label>{{ 'password' | transloco }}</mat-label>
+    <input type="password" matInput [(ngModel)]="password">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="register()">
+    {{ 'register' | transloco }}
+  </button>
+
+  <a routerLink="/auth/login">{{ 'signinHere' | transloco }}</a>
+
+</div>

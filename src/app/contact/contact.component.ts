@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../contact.service';
 import { Contact } from '../contact.model';
 import { Observable } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-contact',
@@ -15,20 +16,27 @@ export class ContactComponent implements OnInit {
   searchTerm: string = "";
   selectedContact: Contact | null = null; // editingContact: Contact | null = null;
 
-  constructor(private contactService: ContactService) { }
+  constructor(
+    private contactService: ContactService,
+    public authService: AuthService
+  ) { }
+
+  logout() {
+    this.authService.logout();
+  }
 
   ngOnInit(): void {
     this.loadContacts();
   }
 
   loadContacts(): void {
-    // Observable from Firestore
+
     this.contacts$ = this.contactService.getContacts();
   }
 
   addContact(): void {
     if (this.newContact.name && this.newContact.email && this.newContact.phone) {
-      // Firestore auto-generates ID
+
       this.contactService.addContact({ ...this.newContact }).then(() => {
         this.newContact = { id: '', name: '', email: '', phone: '' };
       });
@@ -45,8 +53,8 @@ export class ContactComponent implements OnInit {
     }
   }
   addRandomContacts() {
-  this.contactService.generateAndSaveContacts(5); // ← يولّد 5 contacts عشوائية
-}
+    this.contactService.generateAndSaveContacts(5);
+  }
 
 
   // addContact():void{

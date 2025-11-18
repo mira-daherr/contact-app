@@ -1,10 +1,14 @@
+import { TranslocoService } from '@ngneat/transloco';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'contact-app';
+  constructor(private translocoService: TranslocoService) {}
+
+  setLang(lang: string) {
+    this.translocoService.setActiveLang(lang);
+  }
 }

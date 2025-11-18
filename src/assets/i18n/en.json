@@ -1,0 +1,21 @@
+{
+  "login": "Login",
+  "email": "Email",
+  "password": "Password",
+  "dontHaveAccount": "Don't have an account?",
+  "signupHere": "Click here to Sign Up",
+  "welcome": "Welcome",
+  "add": "Add",
+  "name": "Name",
+  "phone": "Phone",
+  "search": "Search",
+  "actions": "Actions",
+  "edit": "Edit",
+  "delete": "Delete",
+  "save": "Save",
+  "close": "Close",
+  "generateRandom": "Generate Random Contacts",
+  "LOGOUT": "Logout",
+  "register": "register",
+  "signinHere": "Click here to Sign In"
+}
