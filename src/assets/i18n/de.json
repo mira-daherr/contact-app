@@ -17,5 +17,6 @@
     "generateRandom": "Zufällige Kontakte erstellen",
     "LOGOUT": "Abmelden",
     "signinHere": "Hier anmelden",
-    "register": "Registrieren"
+    "register": "Registrieren",
+     "exportPDF": "Als PDF exportieren"
 }

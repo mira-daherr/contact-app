@@ -17,5 +17,8 @@
   "save": "حفظ",
   "close": "إغلاق",
   "generateRandom": "إنشاء جهات اتصال عشوائية",
-  "LOGOUT": "تسجيل خروج"
+  "LOGOUT": "تسجيل خروج",
+  "address": "العنوان",
+    "exportPDF": "تصدير إلى PDF"
+
 }

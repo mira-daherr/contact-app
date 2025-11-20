@@ -17,5 +17,8 @@
   "generateRandom": "Generate Random Contacts",
   "LOGOUT": "Logout",
   "register": "register",
-  "signinHere": "Click here to Sign In"
+  "signinHere": "Click here to Sign In",
+  "address": "Address",
+    "exportPDF": "Export to PDF"
+
 }

@@ -3,7 +3,7 @@ import { Contact } from './contact.model';
 
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { randFullName, randEmail, randPhoneNumber } from '@ngneat/falso';
+import { randFullName, randEmail, randPhoneNumber , randStreetAddress} from '@ngneat/falso';
 
 @Injectable({
   providedIn: 'root'
@@ -71,6 +71,7 @@ export class ContactService {
       name: randFullName(),
       email: randEmail(),
       phone: randPhoneNumber(),
+       address: randStreetAddress(), 
     } as Contact;
   } async generateAndSaveContacts(count: number): Promise<void> {
     const contactsCollection = this.firestore.collection('contacts');
