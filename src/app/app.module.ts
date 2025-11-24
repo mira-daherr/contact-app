@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { TranslocoRootModule } from './transloco-root.module';
-
+import { AngularFireFunctionsModule, USE_EMULATOR as USE_FUNCTIONS_EMULATOR } from '@angular/fire/compat/functions';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -42,13 +42,17 @@ import { environment } from '../environments/environment';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-      MatCardModule, 
-      TranslocoRootModule,
+    MatCardModule,
+    TranslocoRootModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireFunctionsModule
   ],
-  providers: [],
+  providers: [
+    
+    { provide: USE_FUNCTIONS_EMULATOR, useValue: ['localhost', 5001] }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

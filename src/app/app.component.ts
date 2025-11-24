@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor(private translocoService: TranslocoService) {}
-
+  
   setLang(lang: string) {
     this.translocoService.setActiveLang(lang);
   }

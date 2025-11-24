@@ -4,7 +4,7 @@ import { Contact } from '../contact.model';
 import { Observable, take } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { AlgoliaService } from '../algolia.service';
-
+import { FirebaseService } from '../firebase.service';
 import * as pdfMake from 'pdfmake/build/pdfmake';
 
 @Component({
@@ -23,14 +23,25 @@ export class ContactComponent implements OnInit {
   constructor(
     private contactService: ContactService,
     public authService: AuthService,
-    private algoliaService: AlgoliaService
+    private algoliaService: AlgoliaService,
+    private firebaseService: FirebaseService
   ) { }
+ngOnInit(): void {
+  this.loadPdfFonts();
+  this.loadContacts();
 
-  ngOnInit(): void {
+ 
+  this.firebaseService.helloWorld().subscribe({//welcome the response from firebase.
+    next: (res: any) => {
+      console.log(res.message); 
+    },
+    error: (err: any) => {
+      console.error('Error calling helloWorld:', err);
+    }
+  });
+}
 
-    this.loadPdfFonts();
-    this.loadContacts();
-  }
+
   searchInAlgolia() {
     if (!this.searchTerm) {
       this.loadContacts();
