@@ -1,7 +1,7 @@
 {
   "name": "functions",
   "scripts": {
-      "lint": "echo 'Skipping lint for deploy'",
+    "lint": "echo 'Skipping lint for deploy'",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "serve": "npm run build && firebase emulators:start --only functions",
@@ -11,10 +11,12 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "24"
+    "node": "20"
   },
   "main": "lib/index.js",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "firebase-admin": "^13.6.0",
     "firebase-functions": "^7.0.0"
   },

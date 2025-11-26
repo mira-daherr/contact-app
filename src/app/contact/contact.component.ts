@@ -41,6 +41,22 @@ ngOnInit(): void {
   });
 }
 
+addContactViaFirebase() {
+  if (!this.newContact.name || !this.newContact.email || !this.newContact.phone) return;
+
+  this.firebaseService.createContact(this.newContact).subscribe({
+    next: (res: any) => {
+      console.log('Contact created via Firebase Functions:', res);
+      alert('Contact created successfully!');
+      this.newContact = { id: '', name: '', email: '', phone: '', address: '' };
+      this.loadContacts();
+    },
+    error: (err: any) => {
+      console.error('Error creating contact via Firebase Functions:', err);
+      alert('Error creating contact!');
+    }
+  });
+}
 
   searchInAlgolia() {
     if (!this.searchTerm) {
@@ -126,3 +142,4 @@ ngOnInit(): void {
     (pdfMake as any).createPdf(docDefinition).download('contacts.pdf');
   }
 }
+

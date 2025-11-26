@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { AngularFireFunctions } from '@angular/fire/compat/functions';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-  constructor(private functions: AngularFireFunctions) {}//object make me use with the firebase functions from angular
+  constructor(private functions: AngularFireFunctions) {}
 
-  helloWorld() {
+  helloWorld(): Observable<any> {
     const callable = this.functions.httpsCallable('helloWorld');
-    return callable({}); 
+    return callable({});
+  }
+
+  createContact(contact: any): Observable<any> {
+    const callable = this.functions.httpsCallable('createContact');
+    return callable({ contact }); 
   }
 }
-///////this is the relation between firebase and angular.
